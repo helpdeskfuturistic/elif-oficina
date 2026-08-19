@@ -17,6 +17,10 @@ document.querySelectorAll("[data-breve]").forEach((el) => {
     event.preventDefault();
     openBreve(el.getAttribute("data-breve"));
     nav.classList.remove("open");
+    document.querySelectorAll(".has-dropdown.open").forEach((item) => {
+      item.classList.remove("open");
+      item.querySelector(".dropdown-toggle").setAttribute("aria-expanded", "false");
+    });
   });
 });
 
@@ -35,18 +39,26 @@ toggle.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
 
-const dropdownItem = document.querySelector(".has-dropdown");
-const dropdownToggle = document.querySelector(".dropdown-toggle");
-
-dropdownToggle.addEventListener("click", (event) => {
-  event.preventDefault();
-  const isOpen = dropdownItem.classList.toggle("open");
-  dropdownToggle.setAttribute("aria-expanded", String(isOpen));
+document.querySelectorAll(".has-dropdown").forEach((item) => {
+  const button = item.querySelector(".dropdown-toggle");
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const willOpen = !item.classList.contains("open");
+    document.querySelectorAll(".has-dropdown.open").forEach((openItem) => {
+      openItem.classList.remove("open");
+      openItem.querySelector(".dropdown-toggle").setAttribute("aria-expanded", "false");
+    });
+    item.classList.toggle("open", willOpen);
+    button.setAttribute("aria-expanded", String(willOpen));
+  });
 });
 
 document.addEventListener("click", (event) => {
-  if (!dropdownItem.contains(event.target)) {
-    dropdownItem.classList.remove("open");
-    dropdownToggle.setAttribute("aria-expanded", "false");
+  if (!event.target.closest(".has-dropdown")) {
+    document.querySelectorAll(".has-dropdown.open").forEach((item) => {
+      item.classList.remove("open");
+      item.querySelector(".dropdown-toggle").setAttribute("aria-expanded", "false");
+    });
   }
 });
