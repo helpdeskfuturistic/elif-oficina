@@ -576,6 +576,14 @@ a {
   background: var(--red-dark);
 }
 
+.side-dock a.whatsapp {
+  background: #25d366;
+}
+
+.side-dock a.whatsapp:hover {
+  background: #1ebe57;
+}
+
 .side-dock svg {
   width: 16px;
   height: 16px;
