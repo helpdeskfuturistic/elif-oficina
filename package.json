@@ -4,6 +4,12 @@
   "private": true,
   "description": "Site estático da Oficina ELIF",
   "scripts": {
-    "start": "npx --yes serve . -l 3000"
+    "start": "npx --yes serve . -l 3000",
+    "build": "node scripts/build-dist.js",
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.127.0"
   }
 }
