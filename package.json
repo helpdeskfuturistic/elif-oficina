@@ -6,10 +6,10 @@
   "scripts": {
     "start": "npx --yes serve . -l 3000",
     "build": "node scripts/build-dist.js",
-    "preview": "npm run build && wrangler dev",
-    "deploy": "npm run build && wrangler deploy"
+    "preview": "npm run build && wrangler dev --config wrangler.toml",
+    "deploy": "npm run build && wrangler deploy --config wrangler.toml"
   },
-  "devDependencies": {
+  "dependencies": {
     "wrangler": "^4.127.0"
   }
 }
