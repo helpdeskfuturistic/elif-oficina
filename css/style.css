@@ -936,40 +936,35 @@ a {
   color: var(--red);
 }
 
-/* Side dock */
+/* Floating WhatsApp */
 .side-dock {
   position: fixed;
-  right: 0;
-  top: 42%;
+  right: 20px;
+  bottom: 20px;
   z-index: 50;
-  display: flex;
-  flex-direction: column;
-}
-
-.side-dock a {
-  width: 42px;
-  height: 42px;
-  background: var(--red);
-  color: #fff;
-  display: grid;
-  place-items: center;
-}
-
-.side-dock a:hover {
-  background: var(--red-dark);
 }
 
 .side-dock a.whatsapp {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   background: #25d366;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .side-dock a.whatsapp:hover {
-  background: #1ebe57;
+  background: #20bd5a;
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
 }
 
 .side-dock svg {
-  width: 16px;
-  height: 16px;
+  width: 30px;
+  height: 30px;
   fill: currentColor;
 }
 
