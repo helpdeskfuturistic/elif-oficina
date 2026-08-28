@@ -1,0 +1,9 @@
+{
+  "name": "elif-oficina",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site estático da Oficina ELIF",
+  "scripts": {
+    "start": "npx --yes serve . -l 3000"
+  }
+}
